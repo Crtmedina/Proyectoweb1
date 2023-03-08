@@ -1,0 +1,298 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+
+/* -------GLOBALES------*/
+
+html {  
+    font-size: 62.5%;
+    box-sizing: border-box; /* ESTO NOS AYUDA PARA EL BOX MODEL*/
+    scroll-snap-type: y mandatory; /*SIGNIFICA QUE LA PAGINA HARA SCROOLL DE ARRIBA HACIA ABAJO*/
+}
+
+/*------SCROLL SNAP (DESPLAZAR CONTENDIO CON EL MOUSE) ----------*/
+
+.servicios,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* 1 REM ES IGUAL A 10 PX GRACIAS A ESTA VARIABLE*/
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /* ESTO DICE QUE DESDE ARRIBA EMPEZARA CON UN COLOR BLANCO DE FONDO HASTA LLEGAR A UN GRIS CLARO*/
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem; /* AUMENTA EL TAMAÑO DE LA LETRA*/
+    text-decoration: none; /* ELIMINA TODA DECORACION DE LAS LETRAS*/
+    text-transform: uppercase; /* PONE EL CONTENDIO EN MAYUSCULAS*/
+    font-weight: bold; /*especifica el peso o grueso de la letra*/
+    border-radius: .5rem; /* HACE QUE LAS ESQUINAS DEL BOTON QUEDEN REDONDEADAS*/
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+
+@media (min-width: 768px ) {
+    .boton{
+        width: auto;
+    }
+}
+
+.boton:hover { /* HOVER SIGNIFCA QUE APLICARA ESTOS ESTILOS CAUNDO EL CURSOR PASE PRO EL ELEMENTO*/
+    cursor: pointer;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(122,122,122,0.66);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(122,122,122,0.66);
+    box-shadow: 0px 5px 15px 0px rgba(122,122,122,0.66);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem; /* ESQUINAS REDONDEADAS*/
+}
+
+/*-----TIPOGRAFIA----------¨*/
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+/* -----TITULOS-----*/
+
+.titulo { 
+    text-align: center;
+}
+
+.titulo span {
+    font-size: 2rem;
+}
+
+/*------UTILIDADES--------*/
+
+.w-sm-100{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+/* ---------NAVEGACION PRINCIPAL-------*/
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex; /* PERMITE TRABAJAR CON EL FLEX BOX COLOCANDO LOS ELEMENTOS DE IZQUIERDA A DERECHA ASI QUE SI QUIERES USAR FLEX BOX DEBES PONER ESTO ANTES*/
+    
+    flex-direction: column;
+}
+
+ @media (min-width: 768px) { /*ESTE MEDIA QUERY SE USARA PARA UNA TABLET*/
+    .navegacion-principal{
+        flex-direction: row; /* AQUI DICE QUE DESDE LOS 768 PIXELES HACIA ARRIBA EL NAV SE COLOCARA DE IZQUIEDA Y DERECHA PERO SI BAJAMOS LA RESOLUCION SE IRA EN COLUMNA HACIA ABAJO COMO FUE PUESTO EN ".navegacion-principal"*/
+        justify-content: space-between; /* PERMITE DISTRIBUIR EL CONTENDIO PARCIALMENTE YA QUE SIN ESTO LOS NAV ESTABAN TODOS JUUNTOS Y NO SE VEIA BIEN, QUITALO Y VERAS*/
+    }
+}
+
+
+
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none; /* CON ESTO QUITAS LA DECORACION DEL TEXTO EN ESTE CASO CADA PALABRA TENIA UNA SUBGUION DE ABAJO*/
+    font-size: 2rem;/* AGRANDA EL TAMAÑO DE LA LETRA*/
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover { /* :HOVER ES UN TIPO DE SEUDOCLASE QUE PERMITE DARLE ESTILOS AL MOMENTO DE PASAR EL RATO POR DICHO ELEMENTO EN ESTE CASO SE HIZO QUE AL PONER EL RATON ENCIMA DE LA PALABRA ESTA CAMBIE A UN COLOR AMARILLO*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* -------- HERO -----------*/
+
+.hero {
+    background-image: url(../img/hero.jpg); /* LOS "../" SIGNIFICA QUE VA SALIENDO DE LA CARPETA DE CSS Y LUEGO ENTRA A LA CARPETA DE IMG Y BUSCCA LA IMAGEN*/
+    background-repeat: no-repeat; /* SIN ESTA FUNCION AL MOMENTO DE AUMENTAR LA RESOLUCION DE LA PANTALLA LA IMAGEN QUE FUE PUESTA EN LA LINEA ANTERIOR SE REPETIRIA ARTAS VECES POR ESO SE USA ESTO PARA QUE SOLO SE MUESTRA UNA IMAGEN*/
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem; /* ESTABLECE UN MARGEN PARA QUE EL CONTENDIO SUPERIOR NO SE PEGUE CON ESTE*/
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0,0,0, .7);
+    background-color: rgb(0 0 0 / 70%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* ----- SERVICIOS -----*/
+@media (min-width: 768px ) {
+    .servicios{
+        display: grid;
+        grid-template-columns: repeat(3,1fr); /*DESPLAZA EL CONTENIDO EN 3 COLUMNAS DE 1FR OSEA UNA FRACION DEL ENTERO DEL CONTENIDO*/
+        column-gap: 1rem; /* HACE UN TIPO DE MARGEN PARA SEPARAR CADA COLUMNA HECHA POR EL GRID*/
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* MEDIANTE ESTE CSS CENTRAMOS EL CONTENIDO*/
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+    /*¨CAMBIOS EN ALGUNSO ESTILOS DE LOS H3 DE CADA COLUMNA DE "MIS SERCVICIOS"*/
+}
+
+.servicio p{
+    line-height: 2; /*PERMITE HACE UN INTERLINEADO AL CONTENIDO DEL PARRAFO ES DECIR QUE SE VEA MAS SEPERADO*/
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%; /* USANDO EL BORDER RADIUS AL 50% HACEMOS QUE EL CONTENIDO QUEDE CON UN BORDE EN CIRCULO*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /*MEDIANTE ESTE CSS CENTRAMOS TODO EL CONTENDIO QUE ABARCAN LOS ICONOS COMO SU BORDE Y TAL*/
+}
+
+/*--- FORMULARIO CONTACTO---*/
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* UTILIZA EL VALOR MAS PEQUEÑO*/
+    margin: 0 auto; /*CENTRA EL CONTENIDO HORIZONTALMENTE SE USA SIEMPRE QUE TENGA UN ELEMENTO COMO FORMULARIO CUYO PADRE NO SEA UN DISPLAY FLEX*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{
+    border: none; /* QUITAMOS EL BORDE*/
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase; /*TEXTO EM MAYUSCULAS*/
+    font-weight: 700; /* CON ESA CANTIDAD DEJA EL TEXTO EN NEGRITAS*/
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+}
+
+.campo:nth-child(3),
+.campo:nth-child(4) { /*ESTA FUNCION TOMA LAS 4 CLASES Y MEDIANTE EL PARENTESIS ELIGES CUAL DE ESTAS QUIERES DARLE ESTILOS EN ESTE CASO EL FORMULARIO
+                        TENIA 4 CAMPOS NOMBRE, TELEFONO CORREO Y MENSAJE AQUI SELECCIONAMOS CORREO PARA EDITARLO Y ASI EL CAMPO TOME TODO EL ESPACIO POSIBLE Y ADEMAS QUE QUEDE SOLO*/
+    grid-column: 1 / 3;
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo textarea{
+    height: 20rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/*-------FOOTER------*/
+
+.footer{
+    text-align: center;
+}
